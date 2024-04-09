@@ -1,0 +1,6 @@
+[package]
+edition = "2021"
+ 
+[[workspace.members]]
+# 这里填入你的新目录相对于Cargo.toml的路径
+path = "exercises"

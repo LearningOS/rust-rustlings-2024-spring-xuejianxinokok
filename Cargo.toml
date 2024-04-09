@@ -29,3 +29,9 @@ path = "src/main.rs"
 assert_cmd = "0.11.0"
 predicates = "1.0.1"
 glob = "0.3.0"
+
+# [workspace]
+# members = [
+#     "exercises",
+#     # 你可以添加更多的目录
+# ]
