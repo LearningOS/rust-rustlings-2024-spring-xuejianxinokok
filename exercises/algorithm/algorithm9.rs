@@ -89,7 +89,7 @@ where
         }
     }
     //下沉
-    fn bubble_down(&mut self, mut idx: usize) {
+    fn sink_down(&mut self, mut idx: usize) {
         while self.children_present(idx) {
             let smallest_child_idx = self.smallest_child_idx(idx);
             if (self.comparator)(&self.items[smallest_child_idx], &self.items[idx]) {
@@ -133,7 +133,7 @@ where
         //减小数量
         self.count -= 1;
         // 下沉新交换的头部节点
-        self.bubble_down(1);
+        self.sink_down(1);
         Some(result)
     }
 }

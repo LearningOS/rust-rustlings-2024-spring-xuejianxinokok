@@ -29,7 +29,7 @@ impl Graph {
         //如果邻居节点未访问过，则递归调用 DFS 方法。
         //递归结束后，返回访问顺序。
         visited.insert(v); // 标记当前节点为已访问
-        visit_order.push(v); // 将当前节点加入访问顺序
+        visit_order.push(v); // 将当前节点加入访问顺序队列
 
         // 遍历当前节点的邻居节点
         for &neighbor in &self.adj[v] {

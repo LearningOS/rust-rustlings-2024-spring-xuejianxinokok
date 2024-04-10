@@ -69,14 +69,15 @@ impl<T: std::cmp::PartialOrd+ Clone> LinkedList<T> {
     }
 	pub fn merge(mut list_a:LinkedList<T>,mut list_b:LinkedList<T>) -> Self
 	{
-		//TODO
-        // 获取list的长度
-        let a_len=list_a.length as i32;
-        let b_len=list_b.length as i32;
-		
-        let mut b_index:i32=0;
-        let mut current_b_op=list_b.get(0);
-        let mut result_list= LinkedList::default();
+	   //TODO
+       
+       // 获取list的长度
+       let a_len=list_a.length as i32;
+       let b_len=list_b.length as i32;
+	   
+       let mut b_index:i32=0;
+       let mut current_b_op=list_b.get(0);
+       let mut result_list= LinkedList::default();
        for i in  0..a_len{
             // print!("{}",i);
             let current_a_op=list_a.get(i);
@@ -105,6 +106,35 @@ impl<T: std::cmp::PartialOrd+ Clone> LinkedList<T> {
                 b_index+=1;
             }
         }
+         
+       
+       /* 
+       let mut current_a_op=list_a.start;
+       let mut current_b_op=list_b.start;
+       let mut result_list= LinkedList::default();
+       while current_a_op.next.is_some(){
+            // print!("{}",i);
+            
+            if let Some(a)=current_a_op {//获取list_a 的项目
+                while current_b_op.is_some()  {//当前 获取list_a  存在
+                    let b=current_b_op.unwrap();
+                    if a<=b{
+                        result_list.add(a.clone());
+                        current_a_op=current_a_op.next;
+                        break; //跳出while,a前进1个
+                    }else if a>b{//b前进,进入while, 接着同current_a_op 比较
+                        result_list.add(b.clone());
+                        // b_index=b_index+1;
+                        current_b_op=current_b_op.next;
+                    }
+                }  
+                if current_b_op.is_none(){//list_b 已经完成,直接添加list_a
+                    result_list.add(a.clone());
+                }
+            }  
+            current_a_op=current_a_op.next;     
+        }
+        */
 
         result_list
 	}

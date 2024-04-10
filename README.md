@@ -1,4 +1,16 @@
+## 
+
+如何在 vscode 中让 rust-analyzer 扫描到 exercises 目录 ？
+ rustlings lsp  
+Determined toolchain: C:\Users\xueji\.rustup\toolchains\stable-x86_64-pc-windows-msvc
+
+Successfully generated rust-project.json
+rust-analyzer will now parse exercises, restart your language server or editor
+
+----
 ## 2024年春夏季操作系统训练营
+
+
 
 
 
@@ -170,7 +182,7 @@ rustlings list
 
 After every couple of sections, there will be a quiz that'll test your knowledge on a bunch of sections at once. These quizzes are found in `exercises/quizN.rs`.
 
-## Enabling `rust-analyzer`
+## Enabling `rust-analyzer`  如何添加提示信息
 
 Run the command `rustlings lsp` which will generate a `rust-project.json` at the root of the project, this allows [rust-analyzer](https://rust-analyzer.github.io/) to parse each exercise.
 
