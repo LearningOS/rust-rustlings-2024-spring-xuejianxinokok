@@ -70,7 +70,7 @@ impl<T: std::cmp::PartialOrd+ Clone> LinkedList<T> {
 	pub fn merge( list_a:LinkedList<T>, list_b:LinkedList<T>) -> Self
 	{
 	   //TODO
-       /* 
+       /* 利用索引访问效率不高
        // 获取list的长度
        let a_len=list_a.length as i32;
        let b_len=list_b.length as i32;
@@ -114,28 +114,26 @@ impl<T: std::cmp::PartialOrd+ Clone> LinkedList<T> {
        let mut result_list= LinkedList::default();
        unsafe{
          while let Some(a)=current_a_op   {
-                  let aval=a.as_ref().val.clone();
-                  while let Some(b)= current_b_op {//当前 获取list_b  存在
-                      let bval=b.as_ref().val.clone();
-                      if aval<=bval{
-                          result_list.add( aval);
-                          current_a_op=a.as_ref().next;
-                          break; //跳出while,a前进1个
-                      }else if aval>bval{//b前进,进入while, 接着同current_a_op 比较
-                          result_list.add(bval);
-                          current_b_op=  b.as_ref().next;
-                      }
-                  }  
-                  if current_b_op.is_none(){//list_b 已经完成,直接添加list_a
-                      result_list.add(a.as_ref().val.clone());
-                  }
-                  current_a_op=a.as_ref().next;
+             let aval=a.as_ref().val.clone();
+             while let Some(b)= current_b_op {//当前 获取list_b  存在
+                 let bval=b.as_ref().val.clone();
+                 if aval<=bval{
+                     result_list.add( aval);
+                     current_a_op=a.as_ref().next;
+                     break; //跳出while,a前进1个
+                 }else if aval>bval{//b前进,进入while, 接着同current_a_op 比较
+                     result_list.add(bval);
+                     current_b_op=  b.as_ref().next;
+                 }
+             }  
+             if current_b_op.is_none(){//list_b 已经完成,直接添加list_a
+                 result_list.add(a.as_ref().val.clone());
+             }
+             current_a_op=a.as_ref().next;
           }
-          while current_b_op.is_some() {
-              if let  Some(b)=current_b_op{
-                  result_list.add(b.as_ref().val.clone());
-                  current_b_op=  b.as_ref().next;
-              }
+          while let  Some(b)=current_b_op{
+                result_list.add(b.as_ref().val.clone());
+                current_b_op=  b.as_ref().next;
           }
        }
        result_list
